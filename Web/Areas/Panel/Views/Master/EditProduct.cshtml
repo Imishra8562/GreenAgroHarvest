@@ -1,0 +1,56 @@
+﻿@model Web.Areas.Panel.Model.MasterModel
+@{
+    ViewBag.Title = "EditProduct";
+    Layout = "~/Areas/Panel/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-body {
+        padding: 15px;
+    }
+
+    /* Button should take full width on smaller screens */
+    .btn {
+        width: 100%;
+    }
+
+    /* Ensure the buttons aren't too wide on large screens */
+    .w-md-auto {
+        width: auto;
+    }
+
+    /* Adjust margin for small screens */
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("UpdateProduct", "Master", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+    {
+        <div class="form-body">
+            <h4 class="form-section">Product</h4>
+            <div class="row g-4">
+                <div class="col-md-6 mb-2">
+                    <label class="label-control ">Product Name</label>
+                    @Html.TextBoxFor(m => m.Product_Obj.Product_Name, new { @class = "form-control border-primary", @type = "text", @placeholder = "Product Name", @autocomplete = "off", @required = "required" })
+                </div>
+                <div class="col-md-6 mb-2">
+                    <label for="Fk_About_Id" class="form-label">Product Image</label>
+                    @Html.TextBoxFor(m => m.Product_Image, new { @class = "form-control border-primary", @type = "file", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ">
+                        @Html.HiddenFor(m => m.Product_Obj.Product_Id)
+                        @Html.HiddenFor(m => m.Product_Obj.Product_Image)
+                        @Html.HiddenFor(m => m.Product_Obj.Product_Code)
+                        <button type="submit" class="btn btn-primary m-1"> <i class="fa fa-check-square-o"></i> Update</button>
+                    </div>
+                </div>
+            </div>
+            <h4 class="form-section"></h4>
+        </div>
+    }
+
+</div>
+

@@ -1,0 +1,74 @@
+﻿@model Web.Model.HomeModel
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Title Bar -->
+<div class="pbmit-title-bar-wrapper">
+    <div class="container">
+        <div class="pbmit-title-bar-content">
+            <div class="pbmit-title-bar-content-inner">
+                <div class="pbmit-tbar">
+                    <div class="pbmit-tbar-inner container">
+                        <h1 class="pbmit-tbar-title"> Our Product</h1>
+                    </div>
+                </div>
+                <div class="pbmit-breadcrumb">
+                    <div class="pbmit-breadcrumb-inner">
+                        <span>
+                            <a title="" href="javascript:void()" class="home"><span>Green Agro</span></a>
+                        </span>
+                        <span class="sep">
+                            <i class="pbmit-base-icon-angle-right"></i>
+                        </span>
+                        <span><span class="post-root post post-post current-item">Our Product</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Title Bar End-->
+<!-- Product Style Start -->
+<section class="section-lgt">
+    <div class="container">
+        <div class="position-relative">
+            <div class="pbmit-heading-subheading animation-style4">
+                <h4 class="pbmit-subtitle">customer choice</h4>
+                <h2 class="pbmit-title">Our Products</h2>
+            </div>
+            <div class="product-arrow swiper-btn-custom d-flex flex-row-reverse"></div>
+        </div>
+        <div class="row">
+            @if (Model.List_Product_Obj != null && Model.List_Product_Obj.Count > 0)
+            {
+                foreach (var items in Model.List_Product_Obj)
+                {
+                    <div class="col-md-3 pbmit-product-style-1">
+                        <div class="product cardlook">
+                            <a href="@Url.Action("ProductDetails","Home",new { Product_Id=items.Product_Id})" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                @if (!string.IsNullOrEmpty(items.Product_Image))
+                                {
+                                    <img src="@items.Product_Image.Replace("~","..")" class="img-fluid" alt="">
+                                }
+                                else
+                                {
+                                    <img src="~/Content/images/homepage-3/product/shop-img-01.png" class="img-fluid" alt="">
+                                }
+                                <h2 class="woocommerce-loop-product__title">@items.Product_Name</h2>
+                            </a>
+                            <a class="pbmit-service-btn" href="@Url.Action("ProductDetails", "Home", new { Product_Id=items.Product_Id})">
+                                <span class="pbmit-button-icon-wrapper">
+                                    <span class="pbmit-button-icon">
+                                        <i class="pbmit-base-icon-black-arrow-1"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>         
+    </div>
+</section>
+<!-- Product Style End -->

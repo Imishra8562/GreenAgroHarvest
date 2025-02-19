@@ -1,0 +1,60 @@
+﻿ @model Web.Areas.Panel.Model.MasterModel
+@{
+    ViewBag.Title = "EditAboutDetails";
+    Layout = "~/Areas/Panel/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-body {
+        padding: 15px;
+    }
+
+    /* Button should take full width on smaller screens */
+    .btn {
+        width: 100%;
+    }
+
+    /* Ensure the buttons aren't too wide on large screens */
+    .w-md-auto {
+        width: auto;
+    }
+
+    /* Adjust margin for small screens */
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("UpdateAboutDetails", "Master", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+    {
+        <div class="form-body">
+            <h4 class="form-section">AboutDetails</h4>
+            <div class="row g-4">
+                <div class="col-md-6 mb-2">
+                    <label for="Fk_About_Id" class="form-label w-100">About Id</label>
+                    @Html.DropDownListFor(m => m.AboutDetails_Obj.Fk_About_Id, new SelectList(Model.List_About_Obj , "About_Id", "Name"), "-- About Name  ---", new { @class = "form-select border-primary p-1 w-100", @required = "required", @style = "padding:0.7rem;" })
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="Fk_Banner_Id" class="form-label mr-1">Banner Id</label>
+                    @Html.DropDownListFor(m => m.AboutDetails_Obj.Fk_Banner_Id, new SelectList(Model.List_Banner_Obj, "Banner_Id", "Banner_Id"), "--Banner Id---", new { @class = "form-select border-primary p-1 w-100", @required = "required", @style = "padding:0.7rem;" })
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label class="label-control ">About Details </label>
+                    @Html.TextBoxFor(m => m.AboutDetails_Obj.About_Details, new { @class = "form-control border-primary", @type = "text", @placeholder = "About_Details", @autocomplete = "off", @required = "required" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ">
+                        @Html.HiddenFor(m => m.AboutDetails_Obj.AboutDetails_Id)
+                        @Html.HiddenFor(m => m.AboutDetails_Obj.AboutDetails_Code)
+                        <button type="submit" class="btn btn-primary m-1"> <i class="fa fa-check-square-o"></i>Update</button>
+                    </div>
+                </div>
+            </div>
+            <h4 class="form-section"></h4>
+        </div>
+    }
+
+</div>

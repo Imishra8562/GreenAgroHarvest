@@ -1,0 +1,66 @@
+﻿@model Web.Areas.Panel.Model.MasterModel
+@{
+    ViewBag.Title = "EditContact";
+    Layout = "~/Areas/Panel/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-body {
+        padding: 15px;
+    }
+
+    /* Button should take full width on smaller screens */
+    .btn {
+        width: 100%;
+    }
+
+    /* Ensure the buttons aren't too wide on large screens */
+    .w-md-auto {
+        width: auto;
+    }
+
+    /* Adjust margin for small screens */
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("UpdateContact", "Master", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+    {
+        <div class="form-body">
+            <h4 class="form-section">Contact</h4>
+            <div class="row g-3">
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="ProductId">Name</label>
+                    @Html.TextBoxFor(m => m.Contact_Obj.Contact_Name, new { @class = "form-control border-primary", @type = "text", @placeholder = "Name", @autocomplete = "off", @required = "required" })
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="ProductId">Phone Number</label>
+                    @Html.TextBoxFor(m => m.Contact_Obj.Contact_Number, new { @class = "form-control border-primary", @type = "text", @placeholder = "Number", @autocomplete = "off", @required = "required", @maxlength = "10", @pattern = @"\d{10}", @title = "Please enter a 10-digit number" })
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="ProductId">Email</label>
+                    @Html.TextBoxFor(m => m.Contact_Obj.Contact_Email, new { @class = "form-control border-primary", @type = "email", @placeholder = "Email", @autocomplete = "off", @required = "required" })
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="ProductId">Comment</label>
+                    @Html.TextBoxFor(m => m.Contact_Obj.Contact_Comment, new { @class = "form-control border-primary", @type = "text", @placeholder = "Comment", @autocomplete = "off", @required = "required" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ">
+                        @Html.HiddenFor(m => m.Contact_Obj.Contact_Id)
+                        @*@Html.HiddenFor(m => m.Banner_Obj.Banner_image)*@
+                        @Html.HiddenFor(m => m.Contact_Obj.Contact_Code)
+                        <button type="submit" class="btn btn-primary m-1 "> <i class="fa fa-check-square-o"></i> Update</button>
+                    </div>
+                </div>
+            </div>
+            <h4 class="form-section"></h4>
+        </div>
+    }
+
+</div>
+
+
+

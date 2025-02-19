@@ -1,0 +1,70 @@
+﻿@model Web.Areas.Panel.Model.MasterModel
+@{
+    ViewBag.Title = "EditCustomberFeedBack";
+    Layout = "~/Areas/Panel/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-body {
+        padding: 15px;
+    }
+
+    /* Button should take full width on smaller screens */
+    .btn {
+        width: 100%;
+    }
+
+    /* Ensure the buttons aren't too wide on large screens */
+    .w-md-auto {
+        width: auto;
+    }
+
+    /* Adjust margin for small screens */
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("UpdateCustomberFeedback", "Master", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+    {
+        <div class="form-body">
+            <h4 class="form-section">Customber Feedback</h4>
+            <div class="row g-3">
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="CustomberName">Customber Name</label>
+                    @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Name, new { @class = "form-control border-primary", @type = "text", @placeholder = "Customber Name", @autocomplete = "off", @required = "required" })
+
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class=" label-control" for="">Customber Email</label>
+                    @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Email, new { @class = "form-control border-primary", @type = "email", @autocomplete = "off" })
+
+                </div>
+
+                <div class="col-md-6 mb-1">
+                    <label class=" label-control" for="CustomberFeedbackId">Customber Number</label>
+                    @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Number, new { @class = "form-control border-primary", @type = "text", @placeholder = "Number", @autocomplete = "off", @required = "required", @maxlength = "10", @pattern = @"\d{10}", @title = "Please enter a 10-digit number" })
+
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="ProductId">Commment</label>
+                    @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Comment, new { @class = "form-control border-primary", @type = "text", @placeholder = "Comment", @autocomplete = "off", @required = "required" })
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="label-control w-100" for="">Status Id</label>
+                    @Html.DropDownListFor(m => m.CustomberFeedback_Obj.Fk_Status_Id, new SelectList(Model.List_Status_Obj, "Status_Id", "Status_Name"), "-- Status Name  ---", new { @class = "form-select border-primary w-100", @required = "required", @style = "padding:0.7rem;" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ">
+                        @Html.HiddenFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Id)
+                        @Html.HiddenFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Code)
+                        <button type="submit" class="btn btn-primary m-1"> <i class="fa fa-check-square-o"></i>Update</button>
+                    </div>
+                </div>
+            </div>
+            <h4 class="form-section"></h4>
+        </div>
+    }
+
+</div>

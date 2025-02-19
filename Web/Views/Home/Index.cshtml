@@ -1,0 +1,890 @@
+﻿@model Web.Model.HomeModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-content">
+    <div class="site-header header-style-1">
+        <div class="pbmit-slider-area pbmit-slider-one">
+            <div class="swiper-slider" data-autoplay="true" data-loop="true" data-dots="true" data-arrows="false" data-columns="1" data-margin="0" data-effect="fade">
+                <div class="swiper-wrapper">
+                    <!-- Slide1 -->
+                    @if (Model.List_Banner_Obj != null && Model.List_Banner_Obj.Count > 0)
+                    {
+                        foreach (var items in Model.List_Banner_Obj)
+                        {
+                            <div class="swiper-slide">
+                                <div class="pbmit-slider-item">
+                                    @if (!string.IsNullOrEmpty(items.Banner_image))
+                                    {
+                                        <div class="pbmit-slider-bg" style="background-image: url(@items.Banner_image.Replace("~",".."));"></div>
+
+                                    }
+                                    else
+                                    {
+                                        <div class="pbmit-slider-bg" style="background-image: url(../../Content/images/banner-slider-img/demo01-slide-01.jpg);"></div>
+
+                                    }
+                                    <div class="container">
+                                        <div class="row g-0">
+                                            <div class="col-md-9 col-lg-7">
+                                                <div class="pbmit-slider-content">
+                                                    <h5 class="pbmit-sub-title transform-top transform-delay-1">Innovation Grows Here</h5>
+                                                    <h2 class="pbmit-title transform-left transform-delay-2">@items.Banner_heading</h2>
+                                                    <p class="pbmit-desc transform-left transform-delay-3">@items.Banner_description</p>
+                                                    <div class="pbmit-button transform-bottom transform-delay-4">
+                                                        <a class="pbmit-btn pbmit-btn-white" href="@Url.Action("Contact", "Home")">
+                                                            <span class="pbmit-button-text">Contact Us </span>
+                                                            <span class="pbmit-button-icon-wrapper">
+                                                                <span class="pbmit-button-icon">
+                                                                    <i class="pbmit-base-icon-black-arrow-1"></i>
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    <!-- Slide2 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ihbox -->
+    <section class="ihbox-section-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xl-3">
+                    <div class="pbmit-ihbox-style-7">
+                        <div class="pbmit-ihbox-box">
+                            <div class="pbmit-icon-wrapper d-flex align-items-center">
+                                <div class="pbmit-ihbox-icon">
+                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-tractor"></i>
+                                    </div>
+                                </div>
+                                <div class="pbmit-title-wrap">
+                                    <h2 class="pbmit-element-title">Professional Farmers</h2>
+                                </div>
+                            </div>
+                            <div class="pbmit-content-wrapper">
+                                <div class="pbmit-heading-desc">Skilled agricultural workers cultivating crops, managing livestock, ensuring food security.</div>
+                            </div>
+                        </div>
+                        <div class="pbmit-ihbox-btn">
+                            <a href="javascript:void()">
+                                <span class="pbmit-button-text">Read More</span>
+                                <span class="pbmit-button-icon-wrapper">
+                                    <span class="pbmit-button-icon">
+                                        <i class="pbmit-base-icon-black-arrow-1"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="pbmit-ihbox-style-7 pt-md-0 pt-4">
+                        <div class="pbmit-ihbox-box">
+                            <div class="pbmit-icon-wrapper d-flex align-items-center">
+                                <div class="pbmit-ihbox-icon">
+                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-plant"></i>
+                                    </div>
+                                </div>
+                                <div class="pbmit-title-wrap">
+                                    <h2 class="pbmit-element-title">Fresh Vegetables</h2>
+                                </div>
+                            </div>
+                            <div class="pbmit-content-wrapper">
+                                <div class="pbmit-heading-desc">Fresh vegetables are nutrient-rich, harvested recently, and full of Rich-flavor. </div>
+                            </div>
+                        </div>
+                        <div class="pbmit-ihbox-btn">
+                            <a href="javascript:void()">
+                                <span class="pbmit-button-text">Read More</span>
+                                <span class="pbmit-button-icon-wrapper">
+                                    <span class="pbmit-button-icon">
+                                        <i class="pbmit-base-icon-black-arrow-1"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="pbmit-ihbox-style-7 pt-xl-0 pt-4">
+                        <div class="pbmit-ihbox-box">
+                            <div class="pbmit-icon-wrapper d-flex align-items-center">
+                                <div class="pbmit-ihbox-icon">
+                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-plant-5"></i>
+                                    </div>
+                                </div>
+                                <div class="pbmit-title-wrap">
+                                    <h2 class="pbmit-element-title">Agriculture Products</h2>
+                                </div>
+                            </div>
+                            <div class="pbmit-content-wrapper">
+                                <div class="pbmit-heading-desc">Agriculture products include crops, livestock, dairy, grains, fruits, and vegetables. </div>
+                            </div>
+                        </div>
+                        <div class="pbmit-ihbox-btn">
+                            <a href="javascript:void()">
+                                <span class="pbmit-button-text">Read More</span>
+                                <span class="pbmit-button-icon-wrapper">
+                                    <span class="pbmit-button-icon">
+                                        <i class="pbmit-base-icon-black-arrow-1"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="pbmit-ihbox-style-7 pt-xl-0 pt-4">
+                        <div class="pbmit-ihbox-box">
+                            <div class="pbmit-icon-wrapper d-flex align-items-center">
+                                <div class="pbmit-ihbox-icon">
+                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-plant-6"></i>
+                                    </div>
+                                </div>
+                                <div class="pbmit-title-wrap">
+                                    <h2 class="pbmit-element-title">Risk-Free Assurance</h2>
+                                </div>
+                            </div>
+                            <div class="pbmit-content-wrapper">
+                                <div class="pbmit-heading-desc">"Risk-Free Assurance" means full assurance of quality, satisfaction, or results. </div>
+                            </div>
+                        </div>
+                        <div class="pbmit-ihbox-btn">
+                            <a href="javascript:void()">
+                                <span class="pbmit-button-text">Read More</span>
+                                <span class="pbmit-button-icon-wrapper">
+                                    <span class="pbmit-button-icon">
+                                        <i class="pbmit-base-icon-black-arrow-1"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Ihbox End -->
+    <!-- Who We Are Start --> 
+    <section>
+        <div class="container section-xl">
+            <div class="row g-0">
+                @if (Model.List_About_Obj != null && Model.List_About_Obj.Count > 0)
+                {
+                    foreach (var items in Model.List_About_Obj)
+                    {
+                       <div class="col-md-12 col-xl-6">
+                         @if (!string.IsNullOrEmpty(items.Image))
+                         {
+                           <div class="who-we-are-one-leftbox" style="background-image: url(@items.Image.Replace("~",".."));">
+                               
+
+                               <div class="fid-style-area">
+                                   <div class="pbminfotech-ele-fid-style-2">
+                                       <div class="pbmit-fld-contents">
+                                           <div class="pbmit-fld-wrap">
+                                               <h4 class="pbmit-fid-inner">
+                                                   <span class="pbmit-fid-before"></span>
+                                                   <span class="pbmit-number-rotate numinate" data-appear-animation="animateDigits" data-from="0" data-to="435" data-interval="5" data-before="" data-before-style="" data-after="" data-after-style="">435</span>
+                                                   <span class="pbmit-fid"><sup>+</sup></span>
+                                               </h4>
+                                               <div class="pbmit-fid-sub">
+                                                   <div class="pbmit-heading-desc">Growth Tons' of Harvest </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="pbmit-sticky-corner  pbmit-bottom-left-corner">
+                                           <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                               <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
+                                           </svg>
+                                       </div>
+                                       <div class="pbmit-sticky-corner pbmit-top-right-corner">
+                                           <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                               <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
+                                           </svg>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                          }
+                           </div>
+                        <div class="col-md-12 col-xl-6">
+                            <div class="who-we-are-one-content">
+                                <div class="pbmit-heading-subheading animation-style4">
+                                    <h4 class="pbmit-subtitle">who we are</h4>
+                                    <h2 class="pbmit-title">@items.Name</h2>
+                                    <div class="pbmit-heading-desc">
+                                        @items.About_Us
+                                        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="pbmit-ihbox-style-4 pe-md-4">
+                                            <div class="pbmit-ihbox-headingicon">
+                                                <div class="pbmit-ihbox-icon">
+                                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-fence"></i>
+                                                    </div>
+                                                </div>
+                                                <h2 class="pbmit-element-title">Eco Farms Worldwide</h2>
+                                                <div class="pbmit-heading-desc">
+                                                    Organic food ensures better health,  sustainable agriculture, superior taste, soil preservation, and community support.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="pbmit-ihbox-style-4 ps-md-4">
+                                            <div class="pbmit-ihbox-headingicon">
+                                                <div class="pbmit-ihbox-icon">
+                                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-lawnmower"></i>
+                                                    </div>
+                                                </div>
+                                                <h2 class="pbmit-element-title">Special Equipment</h2>
+                                                <div class="pbmit-heading-desc">To support organic farming, specialized equipment plays a crucial role in ensuring sustainable and efficient practices.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Who We Are End -->
+    <!-- Product Style Start -->
+    <section class="section-lgt">
+        <div class="container">
+            <div class="position-relative">
+                <div class="pbmit-heading-subheading animation-style4">
+                    <h4 class="pbmit-subtitle">customer choice</h4>
+                    <h2 class="pbmit-title">Our Products</h2>
+                </div>
+                <div class="product-arrow swiper-btn-custom d-flex flex-row-reverse"></div>
+            </div>
+            <div class="swiper-slider" data-autoplay="true" data-arrows-class="product-arrow" data-loop="true" data-dots="false" data-arrows="true" data-columns="4" data-margin="30" data-effect="slide">
+                <div class="swiper-wrapper">
+                    <!-- Slide1 -->
+                    @if (Model.List_Product_Obj != null && Model.List_Product_Obj.Count > 0)
+                    {
+                        foreach (var items in Model.List_Product_Obj)
+                        {
+                            <article class="pbmit-product-style-1 swiper-slide">
+                                <div class="product">
+                                    <a href="@Url.Action("ProductDetails", "Home", new { Product_Id=items.Product_Id})" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                        @if (!string.IsNullOrEmpty(items.Product_Image))
+                                        {
+                                           
+                                            <img src="@items.Product_Image.Replace("~","..")" class="img-fluid" alt="">
+
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Content/images/homepage-3/product/shop-img-01.png" class="img-fluid" alt="">
+
+                                        }
+                                       
+
+                                        <h2 class="woocommerce-loop-product__title">@items.Product_Name</h2>
+                                    </a>
+
+                                    <a class="pbmit-service-btn" href="@Url.Action("ProductDetails", "home", new { Product_Id=items.Product_Id})">
+                                        <span class="pbmit-button-icon-wrapper">
+                                            <span class="pbmit-button-icon">
+                                                <i class="pbmit-base-icon-black-arrow-1"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </article>
+                        }
+                    }
+                         
+                        </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Style End -->
+    <!-- Marquee Start -->
+    <section class="section-lg">
+        <div class="container-fluid p-0">
+            <div class="swiper-slider marquee">
+                <div class="swiper-wrapper">
+                    <article class="pbmit-marquee-effect-style-1 swiper-slide">
+                        <div class="pbmit-tag-wrapper">
+                            <h2 class="pbmit-element-title" data-text="Agriculture">
+                                Agriculture
+                            </h2>
+                        </div>
+                    </article>
+                    <article class="pbmit-marquee-effect-style-1 swiper-slide">
+                        <div class="pbmit-tag-wrapper">
+                            <h2 class="pbmit-element-title" data-text="Farming">
+                                Farming
+                            </h2>
+                        </div>
+                    </article>
+                    <article class="pbmit-marquee-effect-style-1 swiper-slide">
+                        <div class="pbmit-tag-wrapper">
+                            <h2 class="pbmit-element-title" data-text="Organic">
+                                Organic
+                            </h2>
+                        </div>
+                    </article>
+                    <article class="pbmit-marquee-effect-style-1 swiper-slide">
+                        <div class="pbmit-tag-wrapper">
+                            <h2 class="pbmit-element-title" data-text="Vegetables">
+                                Vegetables
+                            </h2>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Marquee End -->
+    <!-- Service Start -->
+    <section class="pbmit-extend-animation section-xl service-bg-one pbmit-bg-color-secondary pbmit-text-color-white">
+        <div class="container">
+            <div class="position-relative">
+                <div class="pbmit-heading-subheading animation-style4">
+                    <h4 class="pbmit-subtitle">Our Services</h4>
+                    <h2 class="pbmit-title">Best Agriculture Services</h2>
+                </div>
+                <div class="service-arrow swiper-btn-custom d-flex flex-row-reverse"></div>
+            </div>
+            <div class="swiper-slider" data-autoplay="false" data-arrows-class="service-arrow" data-loop="true" data-dots="false" data-arrows="true" data-columns="3" data-margin="30" data-effect="slide">
+                <div class="swiper-wrapper">
+                    <!-- Slide1 -->
+                    @if (Model.List_Services_Obj != null && Model.List_Services_Obj.Count > 0)
+                    {
+                        foreach (var items in Model.List_Services_Obj)
+                        {
+                            <article class="pbmit-ele-service pbmit-service-style-1 swiper-slide">
+                                <div class="pbminfotech-post-item">
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbmit-box-content-wrap">
+
+                                            <div class="pbmit-service-image-wrapper">
+                                                <div class="pbmit-featured-img-wrapper">
+                                                    <div class="pbmit-featured-wrapper">
+                                                        @if (!string.IsNullOrEmpty(items.Services_Image))
+                                                        {
+                                                            <img src="@items.Services_Image.Replace("~","..")" class="img-fluid" alt="service-img-01">
+                                                        }
+                                                        else
+                                                        {
+                                                            <img src="~/Content/images/homepage-1/service/service-img-01.png" class="img-fluid" alt="service-img-01">
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                                <a class="pbmit-service-btn" href="javascript:void()" title="Farming">
+                                                    <span class="pbmit-button-icon-wrapper">
+                                                        <span class="pbmit-button-icon">
+                                                            <i class="pbmit-base-icon-black-arrow-1"></i>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="pbmit-box-content-inner">
+                                                <div class="pbmit-contant-box">
+                                                    <div class="pbmit-serv-cat">
+                                                        <a href="javascript:void()" rel="tag">Farming</a>
+                                                    </div>
+                                                    <h3 class="pbmit-service-title">
+                                                        <a href="javascript:void()">@items.Services_Heading</a>
+                                                    </h3>
+                                                    <div class="pbmit-service-description">
+                                                       @items.Services_Description
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="pbmit-service-btn" href="javascript:void()" title="Farming">
+                                            <span class="pbmit-button-icon-wrapper">
+                                                <span class="pbmit-button-icon">
+                                                    <i class="pbmit-base-icon-black-arrow-1"></i>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <a class="pbmit-link" href="javascript:void()"></a>
+                                </div>
+                            </article>
+                        }
+                    }                
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service End -->
+    <!-- Ihbox Start -->
+    <section class="section-xl">
+        <div class="container">
+            <div class="pbmit-heading-subheading text-center animation-style4">
+                <h4 class="pbmit-subtitle">Grow Naturally</h4>
+                <h2 class="pbmit-title">Choose What's Perfect <br> For Your Field</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="pe-lg-5">
+                        <div class="pbmit-ihbox-style-12">
+                            <div class="pbmit-ihbox-box d-flex">
+                                <div class="pbmit-ihbox-icon">
+                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-hand"></i>
+                                    </div>
+                                </div>
+                                <div class="pbmit-ihbox-contents">
+                                    <h2 class="pbmit-element-title">Agriculture Products</h2>
+                                    <div class="pbmit-heading-desc">Fresh, sustainable, organic produce grown naturally for healthier living.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pbmit-ihbox-style-12 mt-md-5 mt-4">
+                            <div class="pbmit-ihbox-box d-flex">
+                                <div class="pbmit-ihbox-icon">
+                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-plant-5"></i>
+                                    </div>
+                                </div>
+                                <div class="pbmit-ihbox-contents">
+                                    <h2 class="pbmit-element-title">Quality Products</h2>
+                                    <div class="pbmit-heading-desc">High-quality, organic, fresh, pure, sustainable, authentic, trusted, healthy, eco-friendly, premium. </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="~/Content/images/homepage-1/img-02.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pe-lg-4 mt-md-0 mt-5">
+                        <div class="pbmit-ihbox-style-12">
+                            <div class="pbmit-ihbox-box d-flex">
+                                <div class="pbmit-ihbox-icon">
+                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-carrot"></i>
+                                    </div>
+                                </div>
+                                <div class="pbmit-ihbox-contents">
+                                    <h2 class="pbmit-element-title">Fresh Vegetables</h2>
+                                    <div class="pbmit-heading-desc">Organic, fresh, nutritious, vibrant, crisp, natural, healthy, premium, pure, eco-friendly.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pbmit-ihbox-style-12 mt-md-5 mt-4">
+                            <div class="pbmit-ihbox-box d-flex">
+                                <div class="pbmit-ihbox-icon">
+                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                        <i class="pbmit-agrimo-icon pbmit-agrimo-icon-wheat"></i>
+                                    </div>
+                                </div>
+                                <div class="pbmit-ihbox-contents">
+                                    <h2 class="pbmit-element-title">Pure & Organic</h2>
+                                    <div class="pbmit-heading-desc">Pure, organic, eco-friendly, sustainable, natural, fresh, healthy, authentic, wholesome, trusted.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Ihbox End -->
+    <!-- Portfolio Start -->
+    <section>
+        <div class="container-fluid px-4">
+            <div class="swiper-slider" data-autoplay="true" data-loop="true" data-dots="false" data-arrows="false" data-columns="4" data-margin="30" data-effect="slide">
+                <div class="swiper-wrapper align-items-center">
+                    <!-- Slide1 -->
+                    @if (Model.List_Gallery_Obj != null && Model.List_Gallery_Obj.Count > 0)
+                    {
+                        foreach (var items in Model.List_Gallery_Obj)
+                        {
+                            <article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+
+
+                                            @if (!string.IsNullOrEmpty(items.Gallery_Image))
+                                            {
+                                                <img src="@items.Gallery_Image.Replace("~","..")" class="img-fluid" alt="">
+                                            }
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">@items.Gallery_Name</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">@items.Gallery_Heading</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- Slide2 -->
+                            <!--<article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+                                            <img src="~/Content/images/homepage-1/portfolio/portfolio-img-02.jpg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">Harvest</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">Agriculture Farming</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>-->
+                            <!-- Slide3 -->
+                            <!--<article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+                                            <img src="~/Content/images/homepage-1/portfolio/portfolio-img-03.jpg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">Plantation</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">Agriculture Farming</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>-->
+                            <!-- Slide4 -->
+                            <!--<article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+                                            <img src="~/Content/images/homepage-1/portfolio/portfolio-img-04.jpg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">production</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">Eco and Agriculture</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>-->
+                            <!-- Slide5 -->
+                            <!--<article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+                                            <img src="~/Content/images/homepage-1/portfolio/portfolio-img-05.jpg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">Plantation</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">Fertilizers & Pesticides</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>-->
+                            <!-- Slide6 -->
+                            <!--<article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+                                            <img src="~/Content/images/homepage-1/portfolio/portfolio-img-06.jpg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">Harvest</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">Grocery Foods</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>-->
+                            <!-- Slide7 -->
+                            <!--<article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+                                            <img src="~/Content/images/homepage-1/portfolio/portfolio-img-07.jpg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">Plantation</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">Organic Products</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>-->
+                            <!-- Slide8 -->
+                            <!--<article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+                                            <img src="~/Content/images/homepage-1/portfolio/portfolio-img-08.jpg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">production</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">Water Irrigation</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>-->
+                            <!-- Slide9 -->
+                            <!--<article class="pbmit-portfolio-style-1 swiper-slide">
+                                <div class="pbminfotech-post-content">
+                                    <div class="pbmit-featured-img-wrapper">
+                                        <div class="pbmit-featured-wrapper">
+                                            <img src="~/Content/images/homepage-1/portfolio/portfolio-img-09.jpg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbminfotech-titlebox">
+                                            <div class="pbmit-port-cat">
+                                                <a href="javascript:void()" rel="tag">Harvest</a>
+                                            </div>
+                                            <h3 class="pbmit-portfolio-title">
+                                                <a href="javascript:void()">Leverage Fluid</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>-->
+                        
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio End -->
+    <!-- About Us Start -->
+    <section>
+        <div class="container">
+            <div class="about-us-one-bg">
+                <div class="row g-0">
+                    <div class="col-md-12 col-xl-6"></div>
+                    <div class="col-md-12 col-xl-6">
+                        <div class="about-us-one-rightbox">
+                            <div class="pbmit-heading-subheading animation-style4">
+                                <h4 class="pbmit-subtitle">What We Do</h4>
+                                <h2 class="pbmit-title">Healthy life with fresh products</h2>
+                                <div class="pbmit-heading-desc">
+                                    Embrace a healthy life with our fresh, organic products, grown sustainably to ensure quality, nutrition, and environmental care, supporting your well-being and a greener future for all.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="pbminfotech-ele-fid-style-3">
+                                        <div class="pbmit-fld-contents d-flex align-items-center">
+                                            <div class="pbmit-circle-outer" data-digit="90" data-fill="#ffffff" data-emptyfill="" data-before="" data-after="<sup>%</sup>" data-thickness="3" data-size="127">
+                                                <div class="pbmit-circle">
+                                                    <div class="pbmit-fid-inner">
+                                                        <span class="pbmit-fid-before"></span>
+                                                        <span class="pbmit-number-rotate numinate" data-appear-animation="animateDigits" data-from="0" data-to="90" data-interval="5" data-before="" data-before-style="" data-after="" data-after-style="">90</span>
+                                                        <span class="pbmit-fid"><sup>%</sup></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pbmit-fid-sub">
+                                                <h3 class="pbmit-fid-title">Eco Farms Worldwide</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-md-0 mt-3">
+                                    <div class="pbminfotech-ele-fid-style-3">
+                                        <div class="pbmit-fld-contents d-flex align-items-center">
+                                            <div class="pbmit-circle-outer" data-digit="78" data-fill="#ffffff" data-emptyfill="" data-before="" data-after="<sup>%</sup>" data-thickness="3" data-size="127">
+                                                <div class="pbmit-circle">
+                                                    <div class="pbmit-fid-inner">
+                                                        <span class="pbmit-fid-before"></span>
+                                                        <span class="pbmit-number-rotate numinate" data-appear-animation="animateDigits" data-from="0" data-to="78" data-interval="5" data-before="" data-before-style="" data-after="" data-after-style="">78</span>
+                                                        <span class="pbmit-fid"><sup>%</sup></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pbmit-fid-sub">
+                                                <h3 class="pbmit-fid-title">Special Equipment</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Us End -->
+    <!-- Ihbox Style 5 Start -->
+    <section>
+        <div class="section-xl container">
+            <div class="ihbox-style-5-bg">
+                <div class="pbmit-ihbox-style-5">
+                    <div class="pbmit-ihbox-box">
+                        <div class="pbmit-ihbox-icon">
+                            <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                <i class="pbmit-agrimo-icon pbmit-agrimo-icon-plant"></i>
+                            </div>
+                        </div>
+                        <div class="pbmit-ihbox-contents">
+                            <h2 class="pbmit-element-title">We’re popular leader in<br> agriculture market globally</h2>
+                        </div>
+                        <div class="pbmit-ihbox-btn">
+                            <a href="@Url.Action("Our_history","Home")">
+                                <span class="pbmit-button-text">Discover more</span>
+                                <span class="pbmit-button-icon-wrapper">
+                                    <span class="pbmit-button-icon">
+                                        <i class="pbmit-base-icon-black-arrow-1"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Ihbox Style 5 End -->
+    <!-- Blog Start -->
+    <section class="section-xl pbmit-column-three">
+        <div class="container">
+            <div class="position-relative">
+                <div class="pbmit-heading-subheading animation-style4">
+                    <h4 class="pbmit-subtitle">Latest Blog</h4>
+                    <h2 class="pbmit-title">Latest posts & articles</h2>
+                </div>
+                <div class="blog-arrow swiper-btn-custom d-flex flex-row-reverse"></div>
+            </div>
+            <div class="swiper-slider" data-autoplay="false" data-arrows-class="blog-arrow" data-loop="true" data-dots="false" data-arrows="true" data-columns="3" data-margin="30" data-effect="slide">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide1 -->
+                    @if (Model.List_Blog_Obj != null && Model.List_Blog_Obj.Count > 0)
+                    {
+                        foreach (var items in Model.List_Blog_Obj)
+                        {
+                            <article class="pbmit-ele-blog pbmit-blog-style-1 swiper-slide">
+                                <div class="post-item">
+                                    <div class="pbminfotech-box-content">
+                                        <div class="pbmit-featured-container">
+                                            <div class="pbmit-featured-img-wrapper">
+                                                <div class="pbmit-featured-wrapper">
+                                                    @if (!string.IsNullOrEmpty(items.Blog_Image))
+                                                    {
+                                                        <img src="@Url.Content(items.Blog_Image)" class="img-fluid" alt="">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/Content/images/homepage-1/blog/blog-image-01.jpg" class="img-fluid" alt="">
+                                                    }
+                                                </div>
+                                            </div>
+                                            <a class="pbmit-blog-btn" href="@Url.Action("BlogDetails", "home", new { Blog_Id = items.Blog_Id})">
+                                                <span class="pbmit-button-icon-wrapper">
+                                                    <span class="pbmit-button-icon">
+                                                        <i class="pbmit-base-icon-black-arrow-1"></i>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <div class="pbmit-meta-cat-wrapper pbmit-meta-line">
+                                                <div class="pbmit-meta-category">
+                                                    <a href="@Url.Action("BlogDetails", "home", new { Blog_Id = items.Blog_Id})" rel="category tag">Food Crops</a>
+                                                </div>
+                                            </div>
+                                            <a class="pbmit-link" href="@Url.Action("BlogDetails", "home", new { Blog_Id = items.Blog_Id})"></a>
+                                        </div>
+                                        <div class="pbmit-category-date-wraper d-flex align-items-center">
+                                            <div class="pbmit-meta-date-wrapper pbmit-meta-line">
+                                                <div class="pbmit-meta-date">
+                                                    <span class="pbmit-post-date">
+                                                        <i class="pbmit-base-icon-calendar-3"></i>@items.Created_On.Value.ToString("dd/MM/yyyy")
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="pbmit-meta-author pbmit-meta-line">
+                                                <span class="pbmit-post-author">
+                                                    <i class="pbmit-base-icon-user-3"></i>admin
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="pbmit-content-wrapper">
+                                            <h3 class="pbmit-post-title">
+                                                <a href="@Url.Action("BlogDetails", "home", new { Blog_Id = items.Blog_Id})">@items.Blog_Name</a></h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog End -->
+
+</div>
+

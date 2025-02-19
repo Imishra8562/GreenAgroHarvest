@@ -1,0 +1,81 @@
+﻿@model Web.Areas.Panel.Model.MasterModel
+@{
+    ViewBag.Title = "EditBlogDetails";
+    Layout = "~/Areas/Panel/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-body {
+        padding: 15px;
+    }
+
+    /* Button should take full width on smaller screens */
+    .btn {
+        width: 100%;
+    }
+
+    /* Ensure the buttons aren't too wide on large screens */
+    .w-md-auto {
+        width: auto;
+    }
+
+    /* Adjust margin for small screens */
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("UpdateBlogDetails", "Master", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+    {
+        <div class="form-body">
+            <h4 class="form-section">BlogDetails</h4>
+            <div class="row g-3">
+                <div class="col-md-6 mb-1">
+                    <label class="label-control w-100" for="BlogId">Blog Id</label>
+                    @Html.DropDownListFor(m => m.BlogDetails_Obj.Fk_Blog_Id, new SelectList(Model.List_Blog_Obj, "Blog_Id", "Blog_Name"), "-- Blog Name  ---", new { @class = "form-select border-primary w-100", @required = "required", @style = "padding:0.7rem;" })
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="">BlogDetails Image</label>
+                    @Html.TextBoxFor(m => m.BlogDetails_Image, new { @class = "form-control border-primary", @type = "File", @autocomplete = "off" })
+                </div>
+
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="BlogDetailsDescription">BlogDetails Description</label>
+                    @Html.TextBoxFor(m => m.BlogDetails_Obj.BlogDetails_Description, new { @class = "form-control border-primary", @type = "text", @placeholder = "Description", @autocomplete = "off", @required = "required" })
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="">BlogDetails ImageA</label>
+                    @Html.TextBoxFor(m => m.BlogDetails_ImageA, new { @class = "form-control border-primary", @type = "File", @autocomplete = "off" })
+                </div>
+
+                <div class="col-md-6 mb-1">
+                    <label class=" label-control" for="">BlogDetails ImageB</label>
+                    @Html.TextBoxFor(m => m.BlogDetails_ImageB, new { @class = "form-control border-primary", @type = "File", @autocomplete = "off" })
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="">BlogDetails Heading</label>
+                    @Html.TextBoxFor(m => m.BlogDetails_Obj.BlogDetails_Heading, new { @class = "form-control border-primary", @type = "text", @autocomplete = "off" })
+
+                </div>
+
+                <div class="col-md-6 mb-1">
+                    <label class="label-control" for="">BlogDetails Description1</label>
+                    @Html.TextBoxFor(m => m.BlogDetails_Obj.BlogDetails_Description1, new { @class = "form-control border-primary", @type = "text", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ">
+                        @Html.HiddenFor(m => m.BlogDetails_Obj.BlogDetails_Id)
+                        @Html.HiddenFor(m => m.BlogDetails_Obj.BlogDetails_Code)
+                        @Html.HiddenFor(m => m.BlogDetails_Obj.BlogDetails_Image)
+                        @Html.HiddenFor(m => m.BlogDetails_Obj.BlogDetails_ImageA)
+                        @Html.HiddenFor(m => m.BlogDetails_Obj.BlogDetails_ImageB)
+                        <button type="submit" class="btn btn-primary m-1"> <i class="fa fa-check-square-o"></i>Update</button>
+                    </div>
+                </div>
+            </div>
+            <h4 class="form-section"></h4>
+        </div>
+    }
+
+</div>

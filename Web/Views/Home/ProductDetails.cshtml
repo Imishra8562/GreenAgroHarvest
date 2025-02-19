@@ -1,0 +1,63 @@
+﻿@model Web.Model.HomeModel
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Title Bar -->
+<div class="pbmit-title-bar-wrapper">
+    <div class="container">
+        <div class="pbmit-title-bar-content">
+            <div class="pbmit-title-bar-content-inner">
+                <div class="pbmit-tbar">
+                    <div class="pbmit-tbar-inner container">
+                        <h1 class="pbmit-tbar-title">Green Agro</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Title Bar End-->
+
+@if(Model.ProductDetails__Business_Obj != null)
+{
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Service Details -->
+        <section class="site-content service-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 ">
+                        <div class="pbmit-service-feature-image">
+                            @if (!string.IsNullOrEmpty(Model.ProductDetails__Business_Obj.Product_Image))
+                            {
+                                <img src="@Url.Content(Model.ProductDetails__Business_Obj.ProductDetails_Image)" class="img-fluid w-100" alt="">
+
+                            }
+                            else
+                            {
+                                <img src="~/Content/images/homepage-3/product/shop-img-01.png" class="img-fluid" alt="">
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-7 sidebar">
+                        <div class="pa-prod-content">
+                            <h2 class="pa-prod-title">@Model.ProductDetails__Business_Obj.ProductDetails_Name</h2>
+                            <a href="javascript:void()" class="pa-prod-category"><span>Category:</span> Organic Farming</a>
+                        </div>
+                        <p>
+                            @Model.ProductDetails__Business_Obj.ProductDetails_Details
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Service Details End -->
+
+    </div>
+    <!-- Page Content End -->
+}
+
+

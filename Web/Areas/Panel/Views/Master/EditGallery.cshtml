@@ -1,0 +1,68 @@
+﻿@model Web.Areas.Panel.Model.MasterModel
+@{
+    ViewBag.Title = "EditGallery";
+    Layout = "~/Areas/Panel/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-body {
+        padding: 15px;
+    }
+
+    /* Button should take full width on smaller screens */
+    .btn {
+        width: 100%;
+    }
+
+    /* Ensure the buttons aren't too wide on large screens */
+    .w-md-auto {
+        width: auto;
+    }
+
+    /* Adjust margin for small screens */
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("UpdateGallery", "Master", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+    {
+        <div class="form-body">
+            <h4 class="form-section">Gallery</h4>
+            <div class="row">
+                <div class="col-md-6 mb-1">
+                    <label class=" label-control" for="GalleryName">Gallery Name</label>
+
+                    @Html.TextBoxFor(m => m.Gallery_Obj.Gallery_Name, new { @class = "form-control border-primary", @type = "text", @placeholder = "Gallery Id", @autocomplete = "off", @required = "required" })
+
+                </div>
+                <div class="col-md-6 mb-1">
+
+                    <label class=" label-control" for="">Gallery heading</label>
+
+                    @Html.TextBoxFor(m => m.Gallery_Obj.Gallery_Heading, new { @class = "form-control border-primary", @type = "text", @placeholder = "Gallery Heading" })
+
+
+                </div>
+
+                <div class="col-md-6 mb-1">
+                    <label class=" label-control">Gallery Image</label>
+                    @Html.TextBoxFor(m => m.Gallery_Image, new { @class = "form-control border-primary", @type = "file", @placeholder = "Upload Image", @autocomplete = "off" })
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ">
+                        @Html.HiddenFor(m => m.Gallery_Obj.Gallery_Id)
+                        @Html.HiddenFor(m => m.Gallery_Obj.Gallery_Code)
+                        <button type="submit" class="btn btn-primary m-1"> <i class="fa fa-check-square-o"></i> Save</button>
+                    </div>
+                </div>
+            </div>
+            <h4 class="form-section"></h4>
+        </div>
+    }
+
+</div>

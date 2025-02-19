@@ -1,0 +1,552 @@
+﻿@model Web.Model.HomeModel
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.BlogDetails_Business_Obj != null)
+{
+    <!-- Title Bar -->
+    <div class="pbmit-title-bar-wrapper">
+        <div class="container">
+            <div class="pbmit-title-bar-content">
+                <div class="pbmit-title-bar-content-inner">
+                    <div class="pbmit-tbar">
+                        <div class="pbmit-tbar-inner container">
+                            <h1 class="pbmit-tbar-title">Our Blog</h1>
+                        </div>
+                    </div>
+                    <div class="pbmit-breadcrumb">
+                        <div class="pbmit-breadcrumb-inner">
+                            <span>
+                                <a title=""  class="home fs-2"><span class="fs-2">Green Agro Harvests</span></a>
+                            </span>
+                            <span class="sep">
+                                <i class="pbmit-base-icon-angle-right fs-2"></i>
+                            </span>
+                            <span><span class="post-root post post-post current-item fs-2">@Model.BlogDetails_Business_Obj.Blog_Name</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Title Bar End-->
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Blog Details -->
+        <section class="site-content blog-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 blog-right-col">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <article>
+                                    <div class="post blog-classic">
+                                        <div class="pbmit-featured-img-wrapper">
+                                            <div class="pbmit-featured-wrapper">
+                                                <a href="javascript:void()">
+                                                    @if (!string.IsNullOrEmpty(Model.BlogDetails_Business_Obj.Blog_Image))
+                                                    {
+                                                        <img src="@Url.Content(Model.BlogDetails_Business_Obj.Blog_Image)" class="img-fluid" alt="">
+
+                                                    }
+
+                                                </a>
+                                            </div>
+                                            <span class="pbmit-meta pbmit-meta-cat">
+                                                <a href="javascript:void()" rel="category tag">@Model.BlogDetails_Business_Obj.Blog_Name</a>
+                                            </span>
+                                        </div>
+                                        <div class="pbmit-blog-classic-inner">
+                                            <div class="pbmit-blog-meta pbmit-blog-meta-top">
+                                                <span class="pbmit-meta pbmit-meta-date">
+                                                    <i class="pbmit-base-icon-calendar-3"></i>
+                                                    <a href="javascript:void()" rel="bookmark">
+                                                        <time class="entry-date published" datetime="2023-08-29T09:05:54+00:00">@Model.BlogDetails_Business_Obj.Created_On.Value.ToString("dd/MM/yyyy")</time>
+                                                        <time class="updated pbmit-hide" datetime="2023-10-19T05:42:54+00:00">April 3, 2025</time>
+                                                    </a>
+                                                </span>
+                                                <span class="pbmit-meta pbmit-meta-author">
+                                                    <i class="pbmit-base-icon-user-3"></i>by
+                                                    <a class="pbmit-author-link" href="blog-detailsjavascript:void()">admin</a>
+                                                </span>
+                                                <span class="pbmit-meta pbmit-meta-comments pbmit-comment-bigger-than-zero">
+                                                    <i class="pbmit-base-icon-chat-3"></i>3 Comments
+                                                </span>
+                                            </div>
+                                            <div class="pbmit-entry-content">
+                                                <p class="pbmit-firstletter">
+                                                    @Model.BlogDetails_Business_Obj.BlogDetails_Description
+                                                </p>
+                                                <blockquote>
+                                                    <p>“When you listen to yourself, everything come naturally. It come from in, like a kind of will to do something. Try to be sensitive. That is just a few clicks away.”<cite>satisfied client</cite></p>
+                                                </blockquote>
+                                                <h3 class="mb-3">@Model.BlogDetails_Business_Obj.BlogDetails_Heading</h3>
+                                                <p>@Model.BlogDetails_Business_Obj.BlogDetails_Description1</p>
+                                                <div class="pbmit-block-columns row g-0">
+                                                    <div class="pbmit-block-column col-md-12 col-xl-6">
+                                                        <figure>
+                                                            @if (!string.IsNullOrEmpty(Model.BlogDetails_Business_Obj.BlogDetails_ImageA))
+                                                            {
+                                                                <img src="@Url.Content(Model.BlogDetails_Business_Obj.BlogDetails_ImageA)" class="img-fluid w-100" alt="">
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <img src="~/Content/images/blog/blog-single-01.jpg" class="img-fluid w-100" alt="">
+                                                            }
+                                                        </figure>
+                                                    </div>
+                                                    <div class="pbmit-block-column col-md-12 col-xl-6">
+                                                        <figure>
+                                                            @if (!string.IsNullOrEmpty(Model.BlogDetails_Business_Obj.BlogDetails_Image))
+                                                            {
+                                                                <img src="@Url.Content(Model.BlogDetails_Business_Obj.BlogDetails_Image)" class="img-fluid w-100" alt="">
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <img src="~/Content/images/blog/blog-single-02.jpg" class="img-fluid w-100" alt="">
+                                                            }
+
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-group list-group-borderless">
+                                                    <li class="list-group-item">
+                                                        <span class="pbmit-icon-list-icon">
+                                                            <i aria-hidden="true" class="pbmit-base-icon-tick-1"></i>
+                                                        </span>
+                                                        <span class="pbmit-icon-list-text">Soil and Water Conservation- Participatory Watershed Management</span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="pbmit-icon-list-icon">
+                                                            <i aria-hidden="true" class="pbmit-base-icon-tick-1"></i>
+                                                        </span>
+                                                        <span class="pbmit-icon-list-text">Land Resource Inventory, Characterization Agricultural Land Use Planning</span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="pbmit-icon-list-icon">
+                                                            <i aria-hidden="true" class="pbmit-base-icon-tick-1"></i>
+                                                        </span>
+                                                        <span class="pbmit-icon-list-text">Model farming agreement on banana in regional languages</span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="pbmit-icon-list-icon">
+                                                            <i aria-hidden="true" class="pbmit-base-icon-tick-1"></i>
+                                                        </span>
+                                                        <span class="pbmit-icon-list-text">Clarification regarding Interest Subvention in Central Sector Scheme for financing</span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="pbmit-icon-list-icon">
+                                                            <i aria-hidden="true" class="pbmit-base-icon-tick-1"></i>
+                                                        </span>
+                                                        <span class="pbmit-icon-list-text">Information on policy framework for agricultural extension</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="pbmit-blog-meta-bottom">
+                                                <div class="pbmit-blog-meta-bottom-left">
+                                                    <span class="pbmit-meta-tags">
+                                                        <a href="javascript:void()" rel="tag">Dairy</a>
+                                                        <a href="javascript:void()" rel="tag">Health</a>
+                                                        <a href="javascript:void()" rel="tag">Organic</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<nav class="navigation post-navigation" aria-label="Posts">
+                                              <div class="nav-links">
+                                                  <div class="nav-previous">
+                                                      <a href="javascript:void()" rel="prev">
+                                                          <span class="pbmit-post-nav-icon">
+                                                              <i class="pbmit-base-icon-left-arrow-1"></i>
+                                                              <span class="pbmit-post-nav-head">Previous Post</span>
+                                                          </span>
+                                                          <span class="pbmit-post-nav-wrapper">
+                                                              <span class="pbmit-post-nav nav-title">Agricultural Infrastructure in Rural Areas</span>
+                                                          </span>
+                                                      </a>
+                                                  </div>
+                                                  <div class="nav-next">
+                                                      <a href="#" rel="next">
+                                                          <span class="pbmit-post-nav-icon">
+                                                              <span class="pbmit-post-nav-head">Next Post</span>
+                                                              <i class="pbmit-base-icon-next"></i>
+                                                          </span>
+                                                          <span class="pbmit-post-nav-wrapper">
+                                                              <span class="pbmit-post-nav nav-title">Organic Fruits: Hidden Advantages And Information</span>
+                                                          </span>
+                                                      </a>
+                                                  </div>
+                                              </div>
+                                          </nav>*@
+                                                                  @*<div class="pbmit-author-box">
+                                              <div class="pbmit-author-image">
+                                                  <img alt="" src="~/Content/images/author.png" class="img-fluid">
+                                              </div>
+                                              <div class="pbmit-author-content">
+                                                  <span class="pbmit-author-name">
+                                                      <a href="javascript:void()" title="Posted by admin" rel="author">admin</a>
+                                                  </span>
+                                                  <p class="pbmit-text pbmit-author-bio">Founder and Creative Director of Blog, an independent digital creative studio based out in 2011. He has over 15 years experience.</p>
+                                              </div>
+                                          </div>*@
+                                </article>
+                               
+                              
+                                    
+                                            @*<div class="comments-area">
+                                                <h2 class="comments-title"> Replies to “Asking a Question”</h2>
+                                                <ul class="comment-list">
+                                                    <li class="comment depth-1">
+                                                        <div class="pbmit-comment">
+                                                            <div class="pbmit-comment-avatar">
+                                                                <img src="~/Content/images/avatar/img-01.jpg" class="img-fluid" alt="">
+                                                            </div>
+                                                            <div class="pbmit-comment-content">
+                                                                <div class="pbmit-comment-meta">
+                                                                    <span class="pbmit-comment-author">
+                                                                        by
+                                                                        <span class="pbmit-comment-author-inner">
+                                                                            <a>@items.CustomberFeedback_Name</a>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="pbmit-comment-date">
+                                                                        <a>@items.Created_On.Value.ToString("dd/MM/yyyy")</a>
+                                                                    </span>
+                                                                </div>
+                                                                <p>@items.CustomberFeedback_Comment </p>
+                                                                <div class="reply">
+                                                                    <a href="#">Reply</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>*@
+                                                        @*<ul class="children">
+                                                            <li>
+                                                                <div class="pbmit-comment">
+                                                                    <div class="pbmit-comment-avatar">
+                                                                        <img src="~/Content/images/avatar/img-02.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="pbmit-comment-content">
+                                                                        <div class="pbmit-comment-meta">
+                                                                            <span class="pbmit-comment-author">
+                                                                                by
+                                                                                <span class="pbmit-comment-author-inner">
+                                                                                    <a href="https://pbminfotech.com/">Leona Spencer</a>
+                                                                                </span>
+                                                                            </span>
+                                                                            <span class="pbmit-comment-date">
+                                                                                <a href="">3 months ago</a>
+                                                                            </span>
+                                                                        </div>
+                                                                        <p>Faucibus nisl tincidunt eget nullam non nisi est. Duis ut diam quam nulla porttittor massa. Iaculis non diam phasellus Imperdiet  dui accumsan sit amet nulla facilisi morbi tempus iaculis eum popule aenean.</p>
+                                                                        <div class="reply">
+                                                                            <a href="#">Reply</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>*@
+                                                    @*</li>*@
+                                                    @*<li>
+                                                        <div class="pbmit-comment">
+                                                            <div class="pbmit-comment">
+                                                                <div class="pbmit-comment-avatar">
+                                                                    <img src="~/Content/images/avatar/img-01.jpg" alt="">
+                                                                </div>
+                                                                <div class="pbmit-comment-content">
+                                                                    <div class="pbmit-comment-meta">
+                                                                        <span class="pbmit-comment-author">
+                                                                            by
+                                                                            <span class="pbmit-comment-author-inner">
+                                                                                <a href="https://pbminfotech.com/">John Doe</a>
+                                                                            </span>
+                                                                        </span>
+                                                                        <span class="pbmit-comment-date">
+                                                                            <a href="#">3 month ago</a>
+                                                                        </span>
+                                                                    </div>
+                                                                    <p>Faucibus nisl tincidunt eget nullam non nisi est. Duis ut diam quam nulla porttittor massa. Iaculis non diam phasellus Imperdiet  dui accumsan sit amet nulla facilisi morbi tempus iaculis eum popule aenean.</p>
+                                                                    <div class="reply">
+                                                                        <a href="#">Reply</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>*@
+                                                @*</ul>*@
+                                                <div class="comment-respond" id="Comment" >
+                                                    <h3 class="comment-reply-title">Leave a Reply </h3>
+                                                    <div class="comment-form">
+                                                        <p class="comment-notes">Your email address will not be published. Required fields are marked *</p>
+                                                        @using (Html.BeginForm("SaveCustomberFeedback", "Home", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+                                                        {
+
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <label>Name *</label>
+                                                                    @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Name, new { @class = "form-control border-primary", @type = "text", @placeholder = "Customber Name", @autocomplete = "off", @required = "required" })
+
+
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <label>E-mail *</label>
+                                                                    @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Email, new { @class = "form-control border-primary", @type = "email", @placeholder = "Email", @autocomplete = "off", @required = "required" })
+
+
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <label>Number*</label>
+                                                                    @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Number, new { @class = "form-control border-primary", @type = "text", @placeholder = "Number", @autocomplete = "off", @required = "required", @maxlength = "10", @pattern = @"\d{10}", @title = "Please enter a 10-digit number" })
+
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <label>Comment*</label>
+                                                                    @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Comment, new { @class = "form-control border-primary", @type = "text", @placeholder = "Comment", @autocomplete = "off", @required = "required" })
+
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox">
+                                                                        <label class="form-check-label">
+                                                                            @Html.HiddenFor(m => m.BlogDetails_Business_Obj.BlogDetails_Id)
+                                                                            Save my name, email, and website in this browser for the next time I comment.
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <button type="submit" class="pbmit-btn pbmit-btn-secondary">Post Comment</button>
+                                                                </div>
+                                                            </div>
+
+                                                        }
+                                                    </div>
+                                                </div>
+                                            @*</div>*@
+
+                                    
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-3 blog-left-col">
+                        <aside class="sidebar">
+                            <aside class="widget widget-search">
+                                <h2 class="widget-title">Search</h2>
+                                <form class="search-form">
+                                    <input type="search" class="search-field" placeholder="Search …" value="">
+                                    @*<button type="submit" class="search-submit"></button>*@
+                                </form>
+                            </aside>
+                            <aside class="widget widget-categories">
+                                <h2 class="widget-title">Categories</h2>
+                                <ul>
+                                    <li>
+                                        <span class="pbmit-cat-li">
+                                            <a href="javascript:void()">Agriculture</a>
+                                            <span class="pbmit-brackets">( 1 )</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="pbmit-cat-li">
+                                            <a href="javascript:void()">Extensive</a>
+                                            <span class="pbmit-brackets">( 1 )</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="pbmit-cat-li">
+                                            <a href="javascript:void()">Farming Tips</a>
+                                            <span class="pbmit-brackets">( 2 )</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="pbmit-cat-li">
+                                            <a href="javascript:void()">Food Crops</a>
+                                            <span class="pbmit-brackets">( 2 )</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="pbmit-cat-li">
+                                            <a href="javascript:void()">Mixed Farming</a>
+                                            <span class="pbmit-brackets">( 2 )</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="pbmit-cat-li">
+                                            <a href="javascript:void()">Organic Farm</a>
+                                            <span class="pbmit-brackets">( 1 )</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <aside class="widget widget-recent-post">
+                                <h2 class="widget-title">Recent Post </h2>
+                                <ul class="recent-post-list">
+                                    @if (Model.List_BlogDetails_Businesses_obj != null && Model.List_BlogDetails_Businesses_obj.Count > 0)
+                                    {
+                                        foreach (var items in Model.List_BlogDetails_Businesses_obj)
+                                        {
+                                            <li class="recent-post-list-li">
+                                                <a class="recent-post-thum" href="@Url.Action("BlogDetails", "home", new { Blog_Id = items.BlogDetails_Id})">
+                                                    @if (!string.IsNullOrEmpty(items.Blog_Image))
+                                                    {
+                                                        <img src="@Url.Content(items.Blog_Image)" class="img-fluid" alt="">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/Content/images/recent-post/blog-01.jpg" class="img-fluid" alt="">
+                                                    }
+                                                </a>
+                                                <div class="pbmit-rpw-content">
+                                                    <span class="pbmit-rpw-date">
+                                                        <a href="javascript:void()">January 10, 2025</a>
+                                                    </span>
+                                                    <span class="pbmit-rpw-title">
+                                                        <a href="@Url.Action("BlogDetails", "home", new { Blog_Id = items.BlogDetails_Id})">@items.Blog_Name</a>
+                                                    </span>
+                                                </div>
+                                            </li>
+
+                                        }
+                                    }
+                                </ul>
+                            </aside>
+                            <aside class="widget widget-tag-cloud">
+                                <h3 class="widget-title">Tag Cloud</h3>
+                                <div class="tagcloud">
+                                    <a href="javascript:void()" class="tag-cloud-link">Dairy</a>
+                                    <a href="javascript:void()" class="tag-cloud-link">Farmers</a>
+                                    <a href="javascript:void()" class="tag-cloud-link">Farming</a>
+                                    <a href="javascript:void()" class="tag-cloud-link">Health</a>
+                                    <a href="javascript:void()" class="tag-cloud-link">Organic</a>
+                                    <a href="javascript:void()" class="tag-cloud-link">Vegetables</a>
+                                </div>
+                            </aside>
+                            <aside class="widget pbmit-service-ad">
+                                <div class="textwidget">
+                                    <div class="pbmit-service-ads">
+                                        <div class="pbmit-ads-icon">
+                                            <i class="pbmit-base-icon-plant"></i>
+                                        </div>
+                                        <h4 class="pbmit-ads-title">Innovative Solutions for agriculture </h4>
+                                        <div class="pbmit-ads-desc">
+                                            <i class="pbmit-base-icon-phone-call-1"></i>+(91) 8370897880
+                                        </div>
+                                        <a class="pbmit-btn pbmit-btn-white" href="@Url.Action("Contact", "Home")">
+                                            <span class="pbmit-button-text">Contact us Now</span>
+                                            <span class="pbmit-button-icon-wrapper">
+                                                <span class="pbmit-button-icon">
+                                                    <i class="pbmit-base-icon-black-arrow-1"></i>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </aside>
+                            <aside>
+                                @if (Model.List_customberFeedback_Businesses_obj != null && Model.List_customberFeedback_Businesses_obj.Count > 0)
+                                {
+                                    foreach (var items in Model.List_customberFeedback_Businesses_obj)
+
+                                    {
+                                        <div class="comments-area">
+                                            <h2 class="comments-title"> Replies to “Asking a Question”</h2>
+                                            <ul class="comment-list">
+                                                <li class="comment depth-1">
+                                                    <div class="pbmit-comment">
+                                                        <div class="pbmit-comment-avatar">
+                                                            <img src="~/Content/images/avatar/img-01.jpg" class="img-fluid" alt="">
+                                                        </div>
+                                                        <div class="pbmit-comment-content">
+                                                            <div class="pbmit-comment-meta">
+                                                                <span class="pbmit-comment-author">
+                                                                    by
+                                                                    <span class="pbmit-comment-author-inner">
+                                                                        <a>@items.CustomberFeedback_Name</a>
+                                                                    </span>
+                                                                </span>
+                                                                <span class="pbmit-comment-date">
+                                                                    <a>@items.Created_On.Value.ToString("dd/MM/yyyy")</a>
+                                                                </span>
+                                                            </div>
+                                                            <p>@items.CustomberFeedback_Comment </p>
+                                                            <div class="reply">
+                                                                <a href="#">Reply</a>
+                                                            </div>
+                                                        </div>
+                                                                            </div>
+                                                                            @*<ul class="children">
+                                                        <li>
+                                                            <div class="pbmit-comment">
+                                                                <div class="pbmit-comment-avatar">
+                                                                    <img src="~/Content/images/avatar/img-02.jpg" alt="">
+                                                                </div>
+                                                                <div class="pbmit-comment-content">
+                                                                    <div class="pbmit-comment-meta">
+                                                                        <span class="pbmit-comment-author">
+                                                                            by
+                                                                            <span class="pbmit-comment-author-inner">
+                                                                                <a href="https://pbminfotech.com/">Leona Spencer</a>
+                                                                            </span>
+                                                                        </span>
+                                                                        <span class="pbmit-comment-date">
+                                                                            <a href="">3 months ago</a>
+                                                                        </span>
+                                                                    </div>
+                                                                    <p>Faucibus nisl tincidunt eget nullam non nisi est. Duis ut diam quam nulla porttittor massa. Iaculis non diam phasellus Imperdiet  dui accumsan sit amet nulla facilisi morbi tempus iaculis eum popule aenean.</p>
+                                                                    <div class="reply">
+                                                                        <a href="#">Reply</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>*@
+                                                                        </li>
+                                                                        @*<li>
+                                                    <div class="pbmit-comment">
+                                                        <div class="pbmit-comment">
+                                                            <div class="pbmit-comment-avatar">
+                                                                <img src="~/Content/images/avatar/img-01.jpg" alt="">
+                                                            </div>
+                                                            <div class="pbmit-comment-content">
+                                                                <div class="pbmit-comment-meta">
+                                                                    <span class="pbmit-comment-author">
+                                                                        by
+                                                                        <span class="pbmit-comment-author-inner">
+                                                                            <a href="https://pbminfotech.com/">John Doe</a>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="pbmit-comment-date">
+                                                                        <a href="#">3 month ago</a>
+                                                                    </span>
+                                                                </div>
+                                                                <p>Faucibus nisl tincidunt eget nullam non nisi est. Duis ut diam quam nulla porttittor massa. Iaculis non diam phasellus Imperdiet  dui accumsan sit amet nulla facilisi morbi tempus iaculis eum popule aenean.</p>
+                                                                <div class="reply">
+                                                                    <a href="#">Reply</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>*@
+                                            </ul>
+                                            
+                                        </div>
+                       
+                                    }
+                                 }
+                       
+                            </aside>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Details End -->
+
+    </div>
+    <!-- Page Content End -->
+}

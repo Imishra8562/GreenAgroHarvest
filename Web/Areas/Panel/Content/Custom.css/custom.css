@@ -1,0 +1,159 @@
+﻿#DataTables_Table_2_paginate {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dataTables_info {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    paginate_button {
+        margin-left: 5px;
+    }
+}
+table.dataTable tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Light gray */
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #ffffff; /* White */
+}
+
+table.dataTable {
+    border: 2px solid #000 !important; /* Darker border */
+}
+
+    table.dataTable th, table.dataTable td {
+        border: 1.5px solid #000 !important; /* Darker column and row borders */
+    }
+
+/* Default Styles for Larger Screens */
+.container {
+    max-width: 100%;
+    margin: 10px auto;
+}
+/* Button styles for smaller size and inline alignment */
+.form-group .btn {
+    font-size: 14px; /* Smaller font size */
+    padding: 6px 12px; /* Smaller padding */
+    margin-right: 10px; /* Space between buttons */
+}
+
+.form-group {
+    display: flex; /* Flexbox to keep the buttons inline */
+    gap: 10px; /* Adjust the gap between buttons */
+    justify-content: flex-start; /* Align buttons to the left */
+    align-items: center; /* Vertically align buttons */
+}
+
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+    .container {
+        margin: 0 10px; /* Reduce margins on mobile devices */
+    }
+
+    .form-body {
+        padding: 10px; /* Add some padding to form on mobile */
+    }
+
+    .form-section {
+        font-size: 1.2rem; /* Adjust font size for mobile */
+    }
+
+    .row {
+        display: block; /* Stack form fields vertically on small screens */
+        margin-bottom: 10px; /* Add some space between fields */
+    }
+
+    .col-md-6 {
+        width: 100%; /* Make the columns full width on mobile */
+        margin-bottom: 15px; /* Space out form fields */
+    }
+
+    .card-body {
+        padding: 10px; /* Reduce padding for mobile */
+    }
+
+    .dt-buttons {
+        font-size: 12px; /* Reduce button size on mobile */
+        margin-bottom: 10px; /* Add space below buttons */
+    }
+
+    .dataTables_filter {
+        margin-top: 10px; /* Adjust search filter margin */
+    }
+
+    /* Make the table scrollable on small screens */
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .action ul {
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        justify-content: center; /* Center action buttons */
+    }
+
+    .action li {
+        display: inline-block;
+    }
+
+    .btn {
+        padding: 8px 12px; /* Adjust button padding */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    /* Optional: Adjust image size for mobile */
+    img {
+        max-width: 100%; /* Ensure images don't overflow */
+        height: auto;
+    }
+}
+
+/* Media Query for smaller mobile devices (Portrait mode) */
+@media (max-width: 480px) {
+    .form-body {
+        padding: 5px; /* Less padding on very small screens */
+    }
+
+    .form-section {
+        font-size: 1rem; /* Further reduce font size */
+    }
+
+    .row {
+        margin-bottom: 8px; /* Less space between fields */
+    }
+
+    .btn {
+        width: 100%; /* Full width buttons */
+        font-size: 14px;
+    }
+
+    /* Smaller table styling */
+    .table {
+        font-size: 12px; /* Reduce font size for table */
+    }
+
+    .dt-buttons button {
+        font-size: 10px; /* Smaller button text */
+    }
+
+    .col-md-6 {
+        width: 100%; /* Full width for form inputs */
+    }
+
+    .card-body {
+        padding: 5px;
+    }
+
+    .dataTables_filter input {
+        font-size: 12px; /* Adjust search input size */
+    }
+}
+

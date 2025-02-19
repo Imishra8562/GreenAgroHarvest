@@ -1,0 +1,73 @@
+﻿@model Web.Areas.Panel.Model.MasterModel
+@{
+    ViewBag.Title = "EditProductDetails";
+    Layout = "~/Areas/Panel/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-body {
+        padding: 15px;
+    }
+
+    /* Button should take full width on smaller screens */
+    .btn {
+        width: 100%;
+    }
+
+    /* Ensure the buttons aren't too wide on large screens */
+    .w-md-auto {
+        width: auto;
+    }
+
+    /* Adjust margin for small screens */
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("UpdateProductDetails", "Master", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+    {
+        <div class="form-body">
+            <h4 class="form-section">ProductDetailsSlide</h4>
+            <div class="row g-4">
+                <div class="col-md-6 mb-2">
+                    <label class="label-control">Product Details Name</label>
+                    @Html.TextBoxFor(m => m.ProductDetails_Obj.ProductDetails_Name,
+                        new { @class = "form-control border-primary", @type = "text", @placeholder = "Product Details Name", @autocomplete = "off", @required = "required" })
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Product Image</label>
+                    @Html.TextBoxFor(m => m.ProductDetails_Image,
+                        new { @class = "form-control border-primary", @type = "file", @autocomplete = "off" })
+                </div>
+
+                <div class="col-md-6 w-100">
+                    <label class="label-control">Product ID</label>
+                    @Html.DropDownListFor(m => m.ProductDetails_Obj.Fk_ProductDetails_Id,
+                        new SelectList(Model.List_Product_Obj, "Product_Id", "Product_Name"),
+                        "-- Select Product Name --",
+                        new { @class = "form-select border-primary w-100", @required = "required", @style = "padding:0.7rem;" })
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Product Details</label>
+                    @Html.TextBoxFor(m => m.ProductDetails_Obj.ProductDetails_Details,
+                        new { @class = "form-control border-primary", @type = "text", @placeholder = "Product Details", @autocomplete = "off", @required = "required" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ">
+                        @Html.HiddenFor(m => m.ProductDetails_Obj.ProductDetails_Id)
+                        @Html.HiddenFor(m => m.ProductDetails_Obj.ProductDetails_Image)
+                        @Html.HiddenFor(m => m.ProductDetails_Obj.ProductDetails_Code)
+                        <button type="submit" class="btn btn-primary m-1 "> <i class="fa fa-check-square-o"></i>Update</button>
+                    </div>
+                </div>
+            </div>
+            <h4 class="form-section"></h4>
+        </div>
+    }
+
+</div>
+

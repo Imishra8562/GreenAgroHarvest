@@ -1,0 +1,138 @@
+﻿@model Web.Areas.Panel.Model.MasterModel
+@{
+    ViewBag.Title = "CustomberFeedback"; int i = 0;
+    Layout = "~/Areas/Panel/Views/Shared/_Layout.cshtml";
+    var Type = TempData["AlertType"] ?? string.Empty;
+    var Title = TempData["AlertTitle"] ?? string.Empty;
+    var Message = TempData["AlertMessage"] ?? string.Empty;
+}
+@*<div class="card-body">
+        @using (Html.BeginForm("SaveCustomberFeedback", "Master", FormMethod.Post, new { @Class = "was-validated", @enctype = "multipart/form-data" }))
+        {
+            <div class="form-body">
+                <h4 class="form-section">Customber Feedback</h4>
+                <div class="row g-3">
+                    <div class="col-md-6 mb-1">
+                        <label class="label-control" for="CustomberName">Customber Name</label>
+                        @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Name, new { @class = "form-control border-primary", @type = "text", @placeholder = "Customber Name", @autocomplete = "off", @required = "required" })
+
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <label class=" label-control" for="">Customber Email</label>
+                        @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Email, new { @class = "form-control border-primary", @type = "email", @autocomplete = "off" })
+
+                    </div>
+
+                    <div class="col-md-6 mb-1">
+                        <label class=" label-control" for="CustomberFeedbackId">Customber Number</label>
+                        @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Number, new { @class = "form-control border-primary", @type = "text", @placeholder = "Number", @autocomplete = "off", @required = "required", @maxlength = "10", @pattern = @"\d{10}", @title = "Please enter a 10-digit number" })
+
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <label class="label-control" for="ProductId">Commment</label>
+                        @Html.TextBoxFor(m => m.CustomberFeedback_Obj.CustomberFeedback_Comment, new { @class = "form-control border-primary", @type = "text", @placeholder = "Comment", @autocomplete = "off", @required = "required" })
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <label class="label-control w-100" for="">Status Id</label>
+                        @Html.DropDownListFor(m => m.CustomberFeedback_Obj.Fk_Status_Id, new SelectList(Model.List_Status_Obj, "Status_Id", "Status_Name"), "-- Status Name  ---", new { @class = "form-select border-primary w-100", @required = "required", @style = "padding:0.7rem;" })
+                    </div>
+                </div>
+                < <div class="row mt-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button type="reset" class="btn btn-warning">
+                            <i class="ft-x"></i> Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-check-square-o"></i> Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+                <h4 class="form-section"></h4>
+            </div>
+        }
+
+    </div>*@
+
+<div class="container marginform">
+    <div class="card-body card-dashboard" style="margin-top:50px;">
+        <div id="DataTables_Table_2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="margin: -54px 7px 3px 4px;">
+            <div class="row" style="margin-top: 75px;">
+                <div class="col-lg-6 col-md-12 mb-2">
+                    <div class="dt-buttons btn-group">
+                        <button class="btn btn-secondary buttons-copy buttons-html5" type="button"><span>Copy</span></button>
+                        <button class="btn btn-secondary buttons-excel buttons-html5" type="button"><span>Excel</span></button>
+                        <button class="btn btn-secondary buttons-pdf buttons-html5" type="button"><span>PDF</span></button>
+                        <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" type="button"><span>Column visibility</span></button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 offset-lg-3 mb-2">
+                    <div id="DataTables_Table_2_filter" class="dataTables_filter">
+                        <label>Search: <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_2"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered dataex-html5-selectors dataTable" id="DataTables_Table_2" role="grid">
+                    <thead class="thead-dark">
+                        <tr role="row">
+                            <th>Customer Feedback ID</th>
+                            <th>Customer Feedback Code</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Number</th>
+                            <th>Comment</th>
+                            <th>Display Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.List_customberFeedback_Businesses_obj != null && Model.List_customberFeedback_Businesses_obj.Count > 0)
+                        {
+                            foreach (var items in Model.List_customberFeedback_Businesses_obj)
+                            {
+                                <tr>
+                                    <td>@(++i)</td>
+                                    <td>@items.CustomberFeedback_Code</td>
+                                    <td>@items.CustomberFeedback_Name</td>
+                                    <td>@items.CustomberFeedback_Email</td>
+                                    <td>@items.CustomberFeedback_Number</td>
+                                    <td class="text-truncate" style="max-width: 200px;">@items.CustomberFeedback_Comment</td>
+                                    <td>@items.Status_Name</td>
+                                    @*<td><a href="@Url.Action("EditCustomberFeedback","Master", new { CustomberFeedback_Id= items.CustomberFeedback_Id })" class="btn btn-warning text-dark">Edit</a></td>*@
+                                    <td>
+                                        <a href="@Url.Action("UpdateCustomerFeedbackStatus", "Master", new { CustomberFeedback_Id = items.CustomberFeedback_Id, status = 1 })" class="btn btn-success text-dark">Approve</a>
+                                        <a href="@Url.Action("UpdateCustomerFeedbackStatus", "Master", new { CustomberFeedback_Id = items.CustomberFeedback_Id, status = 2 })" class="btn btn-danger text-dark" style="margin:4px 8px;">Reject</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_info" id="DataTables_Table_2_info" role="status">Showing 1 to 10 of 57 entries</div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_2_paginate">
+                        <ul class="pagination justify-content-end">
+                            <li class="paginate_button page-item previous disabled"><a href="#" class="page-link">Previous</a></li>
+                            <li class="paginate_button page-item active"><a href="#" class="page-link">1</a></li>
+                            <li class="paginate_button page-item"><a href="#" class="page-link">2</a></li>
+                            <li class="paginate_button page-item"><a href="#" class="page-link">3</a></li>
+                            <li class="paginate_button page-item"><a href="#" class="page-link">4</a></li>
+                            <li class="paginate_button page-item"><a href="#" class="page-link">5</a></li>
+                            <li class="paginate_button page-item"><a href="#" class="page-link">6</a></li>
+                            <li class="paginate_button page-item next"><a href="#" class="page-link">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

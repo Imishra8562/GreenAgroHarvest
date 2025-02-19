@@ -1,0 +1,132 @@
+﻿<style>
+    .loginbtn {
+        font-size: 16px;
+        margin: 10px;
+        border: none;
+        display: inline-block;
+        text-align: center;
+        color: var(--pbmit-blackish-color);
+        background-color: var(--pbmit-global-color) !important;
+        padding: 18px 35px;
+        border-radius: 30px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .loginbtn a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Hover effect */
+        .loginbtn:hover {
+            background-color: #5B8C51 !important;
+        }
+
+         .loginbtn:hover a {
+             color: white;
+         }
+
+        @@media screen  (max-width: 1200px) {
+                  .loginbtn {
+                            display: block;
+                  }
+        }
+
+</style>
+
+<!-- Header Main Area -->
+<header class="site-header header-style-1">
+    <div class="pbmit-header-overlay">
+        <div class="container-fluid">
+            <div class="pbmit-header-content d-flex justify-content-between align-items-center">
+                <div class="pbmit-logo-menuarea d-flex justify-content-between align-items-center">
+                    <div class="site-branding" style="margin-top:30px;">
+                        <h1 class="site-title">
+                            <a href="@Url.Action("Index","Home")">
+                                <img class="logo-img" src="~/Content/images/logo.png"
+                                     alt="Green Agro">
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="site-navigation">
+                        <nav class="main-menu navbar-expand-xl navbar-light">
+                            <div class="navbar-header">
+                                <!-- Toggle Button -->
+
+                                <button class="navbar-toggler" type="button">
+                                    <i class="pbmit-base-icon-menu-1"></i>
+                                </button>
+                            </div>
+                            <div class="pbmit-mobile-menu-bg"></div>
+                            <div class="collapse navbar-collapse clearfix show" id="pbmit-menu">
+                                <div class="pbmit-menu-wrap">
+
+                                    <div class="site-branding1 d-block d-md-none" style="margin-top:30px;">
+                                        <h1 class="site-title">
+                                            <a href="@Url.Action("Index","Home")">
+                                                <img class="logo-img" src="~/Content/images/logo.png"
+                                                     alt="Green Agro">
+                                            </a>
+                                        </h1>
+                                    </div>
+
+                                    <span class="closepanel m-b">
+                                        <svg class="qodef-svg--close qodef-m" xmlns="http://www.w3.org/2000/svg" width="20.163" height="20.163" viewBox="0 0 26.163 26.163">
+                                            <rect width="36" height="1" transform="translate(0.707) rotate(45)"></rect>
+                                            <rect width="36" height="1" transform="translate(0 25.456) rotate(-45)"></rect>
+                                        </svg>
+                                    </span>
+                                    <ul class="navigation clearfix marg">
+                                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                        <li><a href="@Url.Action("About","Home")">About</a></li>
+                                        <li><a href="@Url.Action("Product","Home")">Product</a></li>
+                                        <li><a href="@Url.Action("Gallery","Home")">Gallery</a></li>
+                                        <li><a href="@Url.Action("Contact","Home")">Contact Us</a></li>
+                                        <li><a href="@Url.Action("Login", "Security", new { area = "Panel" })"  class="d-block d-lg-none" type="button">Login </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="pbmit-right-box d-flex align-items-center">
+                    <div class="pbmit-button-box">
+                        <div class="pbmit-header-button">
+
+                            <a href="tel:+1(212)-255-511">
+                                <span class="pbmit-header-button-text-1">Call us Now</span>
+                                <span class="pbmit-header-button-text-2">(+91) 8370897880</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="btn  loginbtn d-none d-xl-block"><a href="@Url.Action("Login", "Security", new { area = "Panel" })"  class="pbmit-btn1" type="button">Login </a></div>
+                   
+
+                    <div class="pbmit-button-box-second">
+                        <a class="pbmit-btn" href="@Url.Action("Contact","Home")">
+                            <span class="pbmit-button-text">Get In Touch</span>
+                            <span class="pbmit-button-icon-wrapper">
+                                <span class="pbmit-button-icon">
+                                    <i class="pbmit-base-icon-black-arrow-1"></i>
+                                </span>
+                            </span>
+                        </a>
+                        <div class="pbmit-sticky-corner pbmit-top-left-corner">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="red"></path>
+                            </svg>
+                        </div>
+                        <div class="pbmit-sticky-corner pbmit-bottom-right-corner">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="red"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<!-- Header Main Area End Here -->
